@@ -1,0 +1,50 @@
+#include <stdio.h>
+
+int result_function (int numD, int numB){
+  int arrB[numB], starting_number, m;
+  long final_number; 
+  starting_number = numD;
+  m = 0;
+  while (numD != 0){
+    arrB[m] = numD % 2;
+    numD/= 2;
+    m++;
+  }
+  int prelast_index = numB - 1;
+  final_number = 0;
+  while (prelast_index >= 0){
+    final_number = final_number * 10 + arrB[prelast_index];
+    --prelast_index;
+  }
+  printf("%d --> %ld\n",starting_number, final_number);
+}
+
+
+int count_function(int array[], int count){
+  int decimal_number, amofbinary_number;
+  for (int j = 0; j < count; j++){
+    decimal_number = array[j];
+    amofbinary_number = 0;
+    while(decimal_number != 0){
+      decimal_number /= 2;
+      amofbinary_number++;
+    }
+
+    result_function(array[j], amofbinary_number);
+  }
+}
+
+
+int main(){
+  int amount;
+  printf("Количество чисел: ");
+  scanf("%d", &amount);
+  if(amount == 0)
+    return 0;
+  int arrayNumber[amount];
+  for(int i = 0; i < amount; i++){
+    printf("Первое число: %d ", i+1);
+    scanf("%d", &arrayNumber[i]);
+  }
+  count_function(arrayNumber, amount);
+}
