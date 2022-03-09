@@ -1,8 +1,9 @@
 #include <stdio.h>
 
+
 int result_function (int numD, int numB){
   int arrB[numB], starting_number, m;
-  long final_number; 
+  long final_number;  
   starting_number = numD;
   m = 0;
   while (numD != 0){
@@ -16,21 +17,21 @@ int result_function (int numD, int numB){
     final_number = final_number * 10 + arrB[prelast_index];
     --prelast_index;
   }
-  printf("%d --> %ld\n",starting_number, final_number);
+  printf("%d --> %ld\n", starting_number, final_number);
 }
 
 
 int count_function(int array[], int count){
-  int decimal_number, amofbinary_number;
+  int decimal_number, amofbinary_numbers;
   for (int j = 0; j < count; j++){
     decimal_number = array[j];
-    amofbinary_number = 0;
+    amofbinary_numbers = 0;
     while(decimal_number != 0){
       decimal_number /= 2;
-      amofbinary_number++;
+      amofbinary_numbers++;
     }
 
-    result_function(array[j], amofbinary_number);
+    result_function(array[j], amofbinary_numbers);
   }
 }
 
